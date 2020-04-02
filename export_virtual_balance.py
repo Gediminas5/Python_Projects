@@ -1,10 +1,3 @@
-# -*- encoding: utf-8 -*-
-###########################################################################
-#
-#    Copyright (C) 2009 Sandas. (http://www.sandas.eu) All Rights Reserved.
-#
-###########################################################################
-
 from report import report_sxw
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
@@ -52,8 +45,7 @@ class Parser(report_sxw.rml_parse):
                     product_qty_by_date[date['date_t']] = product_qty
                 if date['text_t'] == "Tikros atsargos":
                     line.update({('real', date['text_t'], date['date_t']): True,
-                                 (date['text_t'], date['date_t']): product_qty['qty_available']
-                                 })
+                                 (date['text_t'], date['date_t']): product_qty['qty_available']})
                 elif date['text_t'] == "Virtualus kiekis":
                     if product_qty['virtual_available'] >= 0.0:
                         line.update({('positive', date['text_t'], date['date_t']): True})
